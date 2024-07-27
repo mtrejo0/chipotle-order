@@ -89,7 +89,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-4 sm:p-8">
-      <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center">Build Your Chipotle Bowl</h1>
+      <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center">Build Your Bowl!</h1>
 
       <div className="w-full max-w-4xl">
         <h2 className="text-xl sm:text-2xl font-semibold mb-4">Choose Your Ingredients:</h2>
