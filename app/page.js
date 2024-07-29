@@ -30,8 +30,8 @@ const ingredients = {
     { name: 'Sour Cream', color: '#F0FFFF' },
   ],
   extras: [
-    { name: 'Queso Blanco', color: '#FFFDD0' },
-    { name: 'Guacamole', color: '#7CFC00' }
+    { name: 'Queso Blanco (+$)', color: '#FFFDD0' },
+    { name: 'Guacamole (+$)', color: '#7CFC00' }
   ]
 };
 
