@@ -37,16 +37,22 @@ const ingredients = {
 
 export default function Home() {
 
-  const [order, setOrder] = useState(() => {
-    const saved = window.localStorage.getItem("order");
-    const initialValue = JSON.parse(saved);
-    return initialValue || [];
-  })
+  const [order, setOrder] = useState([]);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
-    window.localStorage.setItem('order', JSON.stringify(order));
+    const saved = localStorage.getItem("order");
+    if (saved) {
+      const parsedOrder = JSON.parse(saved);
+      if (Array.isArray(parsedOrder) && parsedOrder.length > 0) {
+        setOrder(parsedOrder);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('order', JSON.stringify(order));
   }, [order]);
 
   const addToOrder = (item, amount) => {
