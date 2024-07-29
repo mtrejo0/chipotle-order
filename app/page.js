@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 const ingredients = {
   base: [
@@ -36,9 +36,18 @@ const ingredients = {
 };
 
 export default function Home() {
-  const [order, setOrder] = useState([]);
+
+  const [order, setOrder] = useState(() => {
+    const saved = localStorage.getItem("order");
+    const initialValue = JSON.parse(saved);
+    return initialValue || [];
+  })
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
+
+  useEffect(() => {
+    localStorage.setItem('order', JSON.stringify(order));
+  }, [order]);
 
   const addToOrder = (item, amount) => {
     const newItem = { ...item, name: amount === 'normal' ? item.name : `${item.name} (${amount})` };
