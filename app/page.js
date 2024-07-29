@@ -3,9 +3,13 @@ import { useState, useEffect } from 'react';
 
 const ingredients = {
   base: [
+    { name: 'Bowl', color: '#F5DEB3' },
+    { name: 'Burrito', color: '#DEB887' },
+    { name: 'Salad', color: '#90EE90' }
+  ],
+  rice: [
     { name: 'White Rice', color: '#FFFFFF' },
     { name: 'Brown Rice', color: '#8B4513' },
-    { name: 'Lettuce', color: '#90EE90' }
   ],
   beans: [
     { name: 'Black Beans', color: '#000000' },
@@ -28,6 +32,7 @@ const ingredients = {
     { name: 'Fajita Veggies', color: '#FF4500' },
     { name: 'Cheese', color: '#FFFF00' },
     { name: 'Sour Cream', color: '#F0FFFF' },
+    { name: 'Lettuce', color: '#90EE90' }
   ],
   extras: [
     { name: 'Queso Blanco $', color: '#FFFDD0' },
@@ -96,7 +101,7 @@ export default function Home() {
   };
 
   const sortedOrder = () => {
-    const categoryOrder = ['base', 'beans', 'protein', 'salsa', 'toppings', 'extras'];
+    const categoryOrder = ['base', 'rice', 'beans', 'protein', 'salsa', 'toppings', 'extras'];
     return categoryOrder.flatMap(category => 
       order.filter(item => ingredients[category].some(i => i.name === item.name.split(' (')[0]))
     );
@@ -104,7 +109,7 @@ export default function Home() {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-4 sm:p-8">
-      <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center">Build Your Bowl!</h1>
+      <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center">Build Your Order!</h1>
 
       <div className="w-full max-w-4xl">
         <h2 className="text-xl sm:text-2xl font-semibold mb-4">Choose Your Ingredients:</h2>
@@ -119,7 +124,7 @@ export default function Home() {
         <div className="mt-8">
           <h2 className="text-xl sm:text-2xl font-semibold mb-4">My Order:</h2>
           {order.length === 0 ? (
-            <p>Your bowl is empty. Add some ingredients!</p>
+            <p>Your order is empty. Add some ingredients!</p>
           ) : (
             <ul className="list-none">
               {Object.keys(ingredients).map(category => {
