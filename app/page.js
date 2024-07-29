@@ -38,7 +38,7 @@ const ingredients = {
 export default function Home() {
 
   const [order, setOrder] = useState(() => {
-    const saved = localStorage.getItem("order");
+    const saved = window.localStorage.getItem("order");
     const initialValue = JSON.parse(saved);
     return initialValue || [];
   })
@@ -46,7 +46,7 @@ export default function Home() {
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
-    localStorage.setItem('order', JSON.stringify(order));
+    window.localStorage.setItem('order', JSON.stringify(order));
   }, [order]);
 
   const addToOrder = (item, amount) => {
