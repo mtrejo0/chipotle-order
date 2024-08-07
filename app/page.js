@@ -32,7 +32,8 @@ const ingredients = {
     { name: 'Fajita Veggies', color: '#FF4500' },
     { name: 'Cheese', color: '#FFFF00' },
     { name: 'Sour Cream', color: '#F0FFFF' },
-    { name: 'Lettuce', color: '#90EE90' }
+    { name: 'Lettuce', color: '#90EE90' },
+    { name: 'Roasted Chili-Corn Salsa', color: '#FFD700' }
   ],
   extras: [
     { name: 'Queso Blanco $', color: '#FFFDD0' },
